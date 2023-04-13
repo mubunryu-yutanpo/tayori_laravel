@@ -1,0 +1,9 @@
+.footer{
+    background-color: $brown;
+    padding: $space_10 $space-5;
+    & p{
+        color: #fff;
+        font-size: $font-size_m;
+        text-align: center;
+    }
+}

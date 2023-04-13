@@ -1,0 +1,23 @@
+.c_main{
+    max-width: 980px;
+    margin: 0 auto;
+    &-title{
+        margin: $space_20 0;
+        &-text{
+            font-size: $font-size_l;
+        }
+        & i{
+            color: $brown;
+            font-size: 20px;
+            margin-right: $space-5;
+        }
+    }
+    &-top-img{
+        text-align: center;
+        margin: $space_40 auto;
+        width: 80%;
+        &-item{
+            width: 100%;
+        }
+    }
+}

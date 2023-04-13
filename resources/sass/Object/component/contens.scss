@@ -1,0 +1,67 @@
+.c_contents{
+  &-card{
+    margin: $space_20 auto;
+    padding: 0 $space-10;
+  }
+  &-title{
+    background-color: $black;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    text-align: center;
+    padding: $space-10 0;
+    &-text{
+        font-size: $font-size_l;
+        margin: 0;
+    }
+  }
+  &-about{
+    background-color: $light-brown;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: $space_20 $space-10;
+    &-text{
+      padding: 0 $space-10 0 $space_default;
+    }
+  }
+  &-diary{
+    background-color: $light-brown;
+    border-radius: 0 0 10px 10px;
+    padding: $space_20 $space_default;
+    & p{
+        margin: $space_20 0;
+    }
+    &-date{
+        text-align: right;
+    }
+    &-img{
+        background-color: #fff;
+        border-radius: $space-10;
+        width: 90%;
+        margin: 0 auto;
+        padding: $space_default $space-10;
+        &-item{
+            width: 100%;
+        }
+    }
+  }
+  &-withdrow{
+    width: 80%;
+    max-width: 980px;
+    margin: $space_20 auto;
+    &-title{
+        font-size: 20px;
+        text-align: center;
+        margin: $space_40 0;
+        & strong{
+            background-image: linear-gradient(transparent 50%, yellow 0%);
+            display: inline;
+        }
+    }
+    &-about{
+        margin: $space_default 0;
+    }
+  }
+
+}

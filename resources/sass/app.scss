@@ -1,0 +1,30 @@
+
+// Variables
+@import 'Fandation/variables';
+
+// Fandation
+@import 'Fandation/base.scss';
+
+// Layouts
+@import 'Layouts/header.scss';
+@import 'Layouts/footer.scss';
+@import 'Layouts/main.scss';
+
+// Component
+@import 'Object/component/contens.scss';
+@import 'Object/component/submit.scss';
+@import 'Object/component/file.scss';
+
+// Project
+@import 'Object/project/form.scss';
+
+// Utility
+@import 'Object/utility/justfy-content.scss';
+@import 'Object/utility/nowrap.scss';
+@import 'Object/utility/text-align.scss';
+
+
+
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+

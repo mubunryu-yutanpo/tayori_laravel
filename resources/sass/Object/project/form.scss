@@ -1,0 +1,132 @@
+.p_form{
+    width: 90%;
+    max-width: 980px;
+    margin: $space_40 auto;
+    &-content{
+        &-title{
+            background-color: $black;
+            color: #fff;
+            font-size: $font-size_l;
+            text-align: center;
+            padding: $space_10 $space-5;
+        }
+        &-items{
+            background-color: $light-brown;
+            padding: $space_20 $space-10;
+            text-align: center;
+            &-text{
+                margin: $space_default 0;
+                & i{
+                    color: $brown;
+                    margin: 0 $space-10;
+                }
+            }
+            &.input-datetime{
+                display: flex;
+                align-items: center;
+            }
+        }
+        &-input{
+            border: none;
+            border-radius: $space-5;
+            width: 95%;
+            margin: $space-5 auto;
+            padding: $space-10 $space-5;
+            &.input-datetime{
+                width: calc(100% / 3.5);
+            }
+        }
+        &-select{
+            display: flex;
+            justify-content: space-around;
+            @include mq(){
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            &-btn{
+                background: #fff;
+                border: 1px solid $black;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                margin: $space-5;
+                transition: all .5s;
+                transform: scale(1);
+                position: relative;
+                &:hover{
+                    background-color: $yellow;
+                    transition: all .5s;
+                    transform: scale(1.2);
+                }
+                & .p_form-content-input{
+                    width: 30px;
+                    height: 30px;
+                    opacity: 0;
+                    position:absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+                &.select-poof-color{
+                    &1{
+                        background-color: #fff;
+                    }
+                    &2{
+                        background-color: #f7ed8c;
+                    }
+                    &3{
+                        background-color: #e4b901;
+                    }
+                    &4{
+                        background-color: #e68a01;
+                    }
+                    &5{
+                        background-color: #a25c00;
+                    }
+                    &6{
+                        background-color: #572d03;
+                    }
+                    &7{
+                        background-color: #2d4a00;
+                    }
+                    &8{
+                        background-color: #8e9388;
+                    }
+                    &9{
+                        background-color: #ba3207;
+                    }
+                }
+                &.select-pee-color{
+                    &1{
+                        background-color: #fff;
+                    }
+                    &2{
+                        background-color: #eeffff;
+                    }
+                    &3{
+                        background-color: #fbf6bf;
+                    }
+                    &4{
+                        background-color: #fce16d;
+                    }
+                    &5{
+                        background-color: #f0c081;
+                    }
+                    &6{
+                        background-color: #cc8b36;
+                    }
+                    &7{
+                        background-color: #ba3207;
+                    }
+                }
+            }
+            &-img{
+                width: 100%;
+                &.small{
+                    width: 65%;
+                }
+            }
+        }
+    }
+}
