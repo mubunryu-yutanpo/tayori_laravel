@@ -28,15 +28,23 @@ Route::get('/newPoof', function(){
 Route::get('/newPee', function(){
     return view('mypage/newPee');
 });
-Route::get('/newFood', function(){
-    return view('mypage/newFood');
-});
+// Route::get('/newFood', function(){
+//     return view('mypage/newFood');
+// });
 Route::get('/profEdit', function(){
     return view('mypage/profEdit');
 });
 Route::get('/withdrow', function(){
     return view('mypage/withdrow');
 });
+
+Route::group(['middleware'=> 'auth'], function(){
+    Route::get('/newFood', 'FoodController@new')->name('newFood');
+    Route::post('/newFood', 'FoodController@create')->name('create_food');
+    Route::get('/newPee', 'PeeController@new')->name('newPee');
+    Route::post('/newPee', 'PeeController@create')->name('create_pee');
+});
+
 
 
 

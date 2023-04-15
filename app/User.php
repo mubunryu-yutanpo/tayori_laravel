@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar'
     ];
 
     /**
@@ -36,4 +36,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function poof(){
+        return $this->hasMany('App\Models\Poof');
+    }
+    public function pee(){
+        return $this->hasMany('App\Models\Pee');
+    }
+    public function food(){
+        return $this->hasMany('App\Models\Food');
+    }
+    public function keeppoof(){
+        return $this->hasMany('App\Models\KeepPoof');
+    }
+    public function keeppee(){
+        return $this->hasMany('App\Models\KeepPee');
+    }
+    public function keepfood(){
+        return $this->hasMany('App\Models\KeepFood');
+    }
+
 }
