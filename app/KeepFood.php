@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class KeepFood extends Model
 {
+    //テーブル名を指定
+    protected $table = 'keep_food';
+
     //テーブルのカラムに挿入するものをfillable(もしくは動かしたくないのをguardedで指定)
     protected $fillable = ['d_id', 'user_id', 'like_flg'];
 

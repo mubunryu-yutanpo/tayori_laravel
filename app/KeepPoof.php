@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class KeepPoof extends Model
 {
+    //テーブル名を指定
+    protected $table = 'keep_poof';
+
     //テーブルのカラムに挿入するものをfillable(もしくは動かしたくないのをguardedで指定)
     protected $fillable = ['d_id', 'user_id', 'like_flg'];
 

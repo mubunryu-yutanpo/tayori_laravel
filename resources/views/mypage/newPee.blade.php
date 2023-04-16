@@ -13,7 +13,7 @@
     <img src="{{ asset('images/img2.png') }}" alt="" class="c_main-top-img-item">
   </div>
 
-  <form action="" method="post" class="p_form">
+  <form action="{{ route('create_pee') }}" method="post" class="p_form">
     @csrf
 
      <div class="p_form-wrap">

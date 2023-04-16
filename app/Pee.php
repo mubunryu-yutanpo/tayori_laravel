@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pee extends Model
 {
+    //テーブル名を指定
+    protected $table = 'pee';
+
     //テーブルのカラムに挿入するものをfillable(もしくは動かしたくないのをguardedで指定)
     protected $fillable = ['user_id', 'date', 'time', 'title', 'comment', 'color', 'volume', 'frequency'];
 

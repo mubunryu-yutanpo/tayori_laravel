@@ -9,7 +9,7 @@
       <p class="c_main-title-text"><i class="fa-solid fa-poo fa-fw"></i>プロフィール編集画面</p>
   </div>
 
-  <form action="" method="post" class="p_form">
+  <form action="{{ route('prof_update', $user->id) }}" method="post" class="p_form">
     @csrf
 
      <div class="p_form-wrap">
