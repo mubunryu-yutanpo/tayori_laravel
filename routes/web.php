@@ -19,20 +19,30 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/withdrow', function(){
-    return view('mypage/withdrow');
-});
 
 Route::group(['middleware'=> 'auth'], function(){
     Route::get('/mypage', 'MypageController@mypage')->name('mypage');
-    Route::get('/newFood', 'FoodController@new')->name('new_food');
-    Route::post('/newFood', 'FoodController@create')->name('create_food');
-    Route::get('/newPee', 'PeeController@new')->name('new_pee');
-    Route::post('/newPee', 'PeeController@create')->name('create_pee');
-    Route::get('/newPoof', 'PoofController@new')->name('new_poof');
-    Route::post('/newPoof', 'PoofController@create')->name('create_poof');
     Route::get('/prof/{id}/edit', 'MypageController@profEdit')->name('prof_edit');
     Route::post('/prof/{id}/edit', 'MypageController@profUpdate')->name('prof_update');
+    Route::get('/logout', 'MypageController@logout')->name('logout');
+    Route::get('/{id}/withdrow', 'MypageController@withdrow')->name('withdrow');
+
+    Route::get('/newFood', 'FoodController@new')->name('new_food');
+    Route::post('/newFood', 'FoodController@create')->name('create_food');
+    Route::get('/{id}/foodEdit', 'FoodController@edit')->name('edit_food');
+    //Route::post('/{id}/foodEdit', 'FoodController@update')->name('update_food');
+
+    Route::get('/newPee', 'PeeController@new')->name('new_pee');
+    Route::post('/newPee', 'PeeController@create')->name('create_pee');
+    Route::get('/{id}/peeEdit', 'PeeController@edit')->name('edit_pee');
+    //Route::post('/{id}/peeEdit', 'PeeController@update')->name('update_pee');
+
+    Route::get('/newPoof', 'PoofController@new')->name('new_poof');
+    Route::post('/newPoof', 'PoofController@create')->name('create_poof');
+    Route::get('/{id}/poofEdit', 'PoofController@edit')->name('edit_poof');
+    //Route::post('/{id}/poofEdit', 'PoofController@update')->name('update_poof');
+
+
 });
 
 

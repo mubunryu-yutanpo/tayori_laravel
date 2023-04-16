@@ -36,7 +36,7 @@
               <li class=""><a href="" class="">マイページ</a></li>
               <li class=""><a href="" class="">クイズ作成</a></li>
               <li class=""><a href="" class="">プロフィール編集</a></li>
-              <li class=""><a href="" class="">ログアウト</a></li>
+              <li class=""><a href="{{ route('logout') }}" class="">ログアウト</a></li>
           @else
               <li class=""> <a href="{{ route('login') }}" class="">{{ __('Login') }}</a></li>
               @if (Route::has('register'))

@@ -18,8 +18,11 @@ class MypageController extends Controller
         //それぞれのDB情報を取得して渡す
         $user = Auth::user();
         $user_id = $user->id;
-        //nullだからいけてない↓
-        //$avatar = DB::table('users')->where($user)->get('avatar');
+        if(DB::table('users')->where('id', $user_id)->value('avatar') === null){
+            $avatar = '/updates/default.png';
+        }else{
+            $avatar = DB::table('users')->where('id', $user_id)->value('avatar');
+        }
 
         //まだデータがない場合はnullを入れとく（allで全データを取得して大量のデータがあると動作に影響するらしいので先頭だけ取得）
         $poof = null;
@@ -35,13 +38,13 @@ class MypageController extends Controller
         if(Food::latest()->first() !== null){
             $food = Food::latest()->first();
         }
-        return view('mypage/mypage', compact('user', 'poof', 'pee', 'food') );
+        return view('mypage/mypage', compact('user','avatar', 'poof', 'pee', 'food') );
     }
 
     // プロフィール編集画面へ
     public function profEdit($id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('Invalid operation was performed'));
+            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
         }
 
         $user = Auth::user($id);
@@ -51,17 +54,38 @@ class MypageController extends Controller
     // プロフィール更新
     public function profUpdate(Request $request, $id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('Invalid operation was performed'));
+            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
         }
-
+       
+        if($request->avatar !== null){
+            $avatar = $request->file('avatar');
+            $filename = $avatar->getClientOriginalName();
+            $avatar->move(public_path('updates'), $filename);
+        }else{
+            $filename = 'default.png';
+        }
+        
         // 情報を更新
         User::where('id', $id)->update([
             'name'   => $request->name,
             'email'  => $request->email,
-            'avatar' => $request->avatar,
+            'avatar' => '/updates/'.$filename,
         ]);
 
         return redirect('/mypage')->with('flash_message', 'プロフィールを変更しました！');
+    }
+
+    // ログアウト
+    public function logout(){
+        Auth::logout();
+        return redirect('/')->with('flash_message', 'ログアウトしました');
+    }
+
+    // 退会ページへ
+    public function withdrow($id){
+        $user = Auth::user($id);
+
+        return view('/mypage/withdrow', compact('user'));
     }
 
 

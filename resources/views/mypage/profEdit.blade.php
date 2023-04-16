@@ -9,7 +9,7 @@
       <p class="c_main-title-text"><i class="fa-solid fa-poo fa-fw"></i>プロフィール編集画面</p>
   </div>
 
-  <form action="{{ route('prof_update', $user->id) }}" method="post" class="p_form">
+  <form action="{{ route('prof_update', $user->id) }}" method="post" class="p_form" enctype="multipart/form-data">
     @csrf
 
      <div class="p_form-wrap">
@@ -20,7 +20,7 @@
                 <p class="">名前</p>
             </div>
             <div class="p_form-content-items">
-               <input type="text" name="name" class="p_form-content-input @error('name') valid-error @enderror" id="name" value="{{ old('name') }}">
+               <input type="text" name="name" class="p_form-content-input @error('name') valid-error @enderror" id="name" value="{{ $user->name }}">
                 <!-- error -->
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                 <p class="">Email</p>
             </div>
             <div class="p_form-content-items">
-               <input type="text" name="email" class="p_form-content-input @error('email') valid-error @enderror" id="email" value="{{ old('email') }}">
+               <input type="text" name="email" class="p_form-content-input @error('email') valid-error @enderror" id="email" value="{{ $user->email }}">
                 <!-- error -->
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -54,8 +54,8 @@
             <div class="p_form-content-items">
                     <label class="c_file-label">
                         <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
-                        <input type="file" class="c_file-input js-file-input" name="avatar">
-                        <img src="" alt="" class="c_file-img js-file-img">
+                        <input type="file" class="c_file-input js-file-input" name="avatar" enctype="multipart/form-data">
+                        <img src="{{ $user->avatar }}" alt="" class="c_file-img js-file-img">
                         ドラッグ＆ドロップ
                     </label>
                 <!-- error -->

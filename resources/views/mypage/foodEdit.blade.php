@@ -1,12 +1,12 @@
 @extends('Layouts.parent')
 
-@section('title', '食べたもの日記作成')
+@section('title', '食べたもの日記編集')
 
 @section('header')
 
 @section('main')
   <div class="c_main-title">
-      <p class="c_main-title-text"><i class="fa-solid fa-poo fa-fw"></i>食べたもの日記作成</p>
+      <p class="c_main-title-text"><i class="fa-solid fa-poo fa-fw"></i>食べたもの日記編集</p>
   </div>
 
   <div class="c_main-top-img">
@@ -25,9 +25,9 @@
             </div>
             <div class="p_form-content-items input-datetime">
                <label for="date">日付</label>
-               <input type="date" name="date" class="p_form-content-input input-datetime @error('date') valid-error @enderror" id="date" value="{{ old('date') }}">
+               <input type="date" name="date" class="p_form-content-input input-datetime @error('date') valid-error @enderror" id="date" value="{{ $food->date }}">
                <label for="time">時間</label>
-               <input type="time" name="time" class="p_form-content-input input-datetime @error('time') valid-error @enderror" id="time" value="{{ old('time') }}">
+               <input type="time" name="time" class="p_form-content-input input-datetime @error('time') valid-error @enderror" id="time" value="{{ $food->time }}">
 
                <!-- error -->
                 @error('date')
@@ -44,7 +44,7 @@
                 <p class="">タイトル</p>
             </div>
             <div class="p_form-content-items">
-               <input type="text" name="title" class="p_form-content-input @error('title') valid-error @enderror" id="title" value="{{ old('title') }}" placeholder="タイトルがある場合は入力してください">
+               <input type="text" name="title" class="p_form-content-input @error('title') valid-error @enderror" id="title" value="{{ $food->title }}" placeholder="タイトルがある場合は入力してください">
                 <!-- error -->
                 @error('title')
                     <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                 <p class="">コメント</p>
             </div>
             <div class="p_form-content-items">
-                <textarea name="comment" class="p_form-content-input @error('comment') valid-error @enderror" id="comment" cols="30" rows="10">{{ old('comment') }}</textarea>
+                <textarea name="comment" class="p_form-content-input @error('comment') valid-error @enderror" id="comment" cols="30" rows="10">{{ $food->comment }}</textarea>
                 <!-- error -->
                 @error('comment')
                     <span class="invalid-feedback" role="alert">
@@ -81,7 +81,7 @@
                     <label class="c_file-label">
                         <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
                         <input type="file" class="c_file-input js-file-input" name="pic{{ $i }}" enctype="multipart/form-data">
-                        <img src="" alt="" class="c_file-img js-file-img">
+                        <img src="{{ $food->{ 'pic'.$i } }}" alt="" class="c_file-img js-file-img">
                         ドラッグ＆ドロップ
                     </label>
                  @endfor
