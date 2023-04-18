@@ -17,7 +17,7 @@
 
   <div class="c_contents-card">
     <div class="c_contents-title">
-        <h3 class="c_contents-title-text">ウンチ日記の最新のやつ</h3>
+        <h3 class="c_contents-title-text">@if($poof !== null){{ $poof->title }}@else 無題 @endif</h3>
     </div>
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($poof !== null){{ $poof->date }}@endif</p>
@@ -25,10 +25,11 @@
             @if($poof !== null)<a href="{{ route('edit_poof', $poof->id) }}">編集</a>@endif
     </div>
   </div>
+  <a href="{{ route('index_poof') }}">一覧へ</a>
 
   <div class="c_contents-card">
     <div class="c_contents-title">
-        <h3 class="c_contents-title-text">おしっこ日記の最新のやつ</h3>
+        <h3 class="c_contents-title-text">@if($pee !== null){{ $pee->title }}@else 無題 @endif</h3>
     </div>
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($pee !== null){{ $pee->date }}@endif</p>
@@ -39,7 +40,7 @@
 
   <div class="c_contents-card">
     <div class="c_contents-title">
-        <h3 class="c_contents-title-text">食べたもの日記の最新のやつ</h3>
+        <h3 class="c_contents-title-text">@if($food !== null){{ $food->title }}@else 無題 @endif</h3>
     </div>
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($food !== null){{ $food->date }}@endif</p>
@@ -50,6 +51,8 @@
             @if($food !== null)<a href="{{ route('edit_food', $food->id) }}">編集</a>@endif
     </div>
   </div>
+  <a href="{{ route('index_food') }}">一覧へ</a>
+
 
 
 

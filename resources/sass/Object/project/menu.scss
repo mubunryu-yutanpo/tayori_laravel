@@ -1,0 +1,30 @@
+.p_menu{
+    @include mq(){
+        background: $light-brown;
+        text-align: center;
+        padding: $space-10 0;
+        position: absolute;
+        width: 100%;
+        &-close{
+            text-align: right;
+            padding-right: $space-20;
+            margin-bottom: $space-10;
+            &-btn{
+                padding: $space-10 $space-20;
+                background: none;
+                font-size: $font-size_xl;
+            }
+        }
+        &-list{
+            margin: $space_30 0;
+        }
+        &-link{
+            color: $black;
+            padding: $space-10 $space-20;
+            &:hover{
+                color: #fff;
+            }
+        }
+
+    }
+}

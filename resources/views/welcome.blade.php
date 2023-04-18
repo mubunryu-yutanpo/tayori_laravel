@@ -50,11 +50,11 @@
     </div>
   </div>
 
-  <div class="">
-    <button class="p_button-main">
+  <div class="c_submit ta-center">
+    <button class="p_button-primary color1">
         <a href="" class="">今日の便りを記録する</a>
     </button>
-    <p class="">※完全無料でご利用いただけます</p>
+    <p style="margin: 20px 0;">※完全無料でご利用いただけます</p>
   </div>
 
 @endsection

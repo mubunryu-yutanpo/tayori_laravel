@@ -13,34 +13,40 @@
 </head>
 <body>
     @section('header')
-      <div class="header" style="background:#B68973;">
-       <img src="{{ asset('images/unkokko.png') }}" alt="" style="width:50px;">
+      <div class="header">
+        <div class="header-logo">
+          <img src="{{ asset('images/unkokko.png') }}" alt="">
+          <p class="header-logo-text">Tayori</p>
+        </div>
 
-       <button class="">
-         <img src="{{ asset('images/menu.png') }}" alt="">
+       <button class="header-menu-btn">
+         <img src="{{ asset('images/menu.png') }}" alt="" class="header-menu-img">
        </button>
       </div>
 
       @if (Route::has('login'))
-        <div class="">
+        <div class="p_menu">
           
-          <div class="">
-            <button class="">
+          <div class="p_menu-close">
+            <button class="p_menu-close-btn">
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
 
-          <li class=""><a href="/" class="">TOP</a></li>
-          <li class=""><a href="" class="">クイズをプレイ</a></li>
+          <li class="p_menu-list"><a href="/" class="p_menu-link">TOP</a></li>
           @auth
-              <li class=""><a href="" class="">マイページ</a></li>
-              <li class=""><a href="" class="">クイズ作成</a></li>
-              <li class=""><a href="" class="">プロフィール編集</a></li>
-              <li class=""><a href="{{ route('logout') }}" class="">ログアウト</a></li>
+              <li class="p_menu-list"><a href="/mypage" class="p_menu-link">マイページ</a></li>
+              <li class="p_menu-list"><a href="/newPoof" class="p_menu-link">ウンチ日記作成</a></li>
+              <li class="p_menu-list"><a href="/index/poof" class="p_menu-link">ウンチ日記編集</a></li>
+              <li class="p_menu-list"><a href="/newPee" class="p_menu-link">オシッコ日記作成</a></li>
+              <li class="p_menu-list"><a href="/index/pee" class="p_menu-link">オシッコ日記編集</a></li>
+              <li class="p_menu-list"><a href="/newFood" class="p_menu-link">食べたもの日記作成</a></li>
+              <li class="p_menu-list"><a href="/index/food" class="p_menu-link">食べたもの日記編集</a></li>
+              <li class="p_menu-list"><a href="{{ route('logout') }}" class="p_menu-link">ログアウト</a></li>
           @else
-              <li class=""> <a href="{{ route('login') }}" class="">{{ __('Login') }}</a></li>
+              <li class="p_menu-list"> <a href="{{ route('login') }}" class="p_menu-link">ログイン</a></li>
               @if (Route::has('register'))
-                <li class=""><a href="{{ route('register') }}" class="">{{ __('Register') }}</a></li>
+                <li class="p_menu-list"><a href="{{ route('register') }}" class="p_menu-link">登録</a></li>
               @endif
           @endauth
         </div>

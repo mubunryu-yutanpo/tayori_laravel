@@ -13,7 +13,7 @@
     <img src="{{ asset('images/img2.png') }}" alt="" class="c_main-top-img-item">
   </div>
 
-  <form action="{{ route('create_food') }}" method="POST" class="p_form" enctype="multipart/form-data">
+  <form action="{{ route('update_food', $food->id) }}" method="POST" class="p_form" enctype="multipart/form-data">
     @csrf
 
      <div class="p_form-wrap">
@@ -100,6 +100,12 @@
 
      </div><!--form-wrap-->
   </form>
+
+  <form action="{{ route('delete_food', $food->id) }}" method="post" class="p_form ta-right">
+    @csrf
+    <button type="submit" class="c_submit-btn" onclick='return confirm("この日記を削除しますか？");'>削除する</button>
+  </form>
+
 
 @endsection
 

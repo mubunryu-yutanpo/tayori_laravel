@@ -13,7 +13,7 @@
     <img src="{{ asset('images/img2.png') }}" alt="" class="c_main-top-img-item">
   </div>
 
-  <form action="{{ route('create_poof') }}" method="post" class="p_form">
+  <form action="{{ route('update_poof', $poof->id) }}" method="post" class="p_form">
     @csrf
 
      <div class="p_form-wrap">
@@ -108,8 +108,8 @@
                 <div class="p_form-content-select nowrap">
                   @for($i = 1; $i <= 7; $i++)
                   <button class="p_form-content-select-btn js-select-btn">
-                     <input type="checkbox" name="shape" class="p_form-content-input @error('shape') valid-error @enderror" id="shape" value="{{ $i }} @if($i === $poof->smell) checked @endif">
-                     <img src="images/shape{{ $i }}.png" class="p_form-content-select-img">
+                     <input type="checkbox" name="shape" class="p_form-content-input @error('shape') valid-error @enderror" id="shape" value="{{ $i }}" @if($i === $poof->smell) checked @endif">
+                     <img src="{{ asset('images/shape' .$i. '.png') }}" class="p_form-content-select-img">
                   </button>
                   @endfor
                 </div>
@@ -137,8 +137,8 @@
                 <div class="p_form-content-select justfy-eve">
                 @for($i = 1; $i <= 3; $i++)
                   <button class="p_form-content-select-btn js-select-btn">
-                     <input type="checkbox" name="smell" class="p_form-content-input @error('smell') valid-error @enderror" id="smell" value="{{ $i }} @if($i === $poof->smell) checked @endif">
-                     <img src="images/smell{{ $i }}.png" class="p_form-content-select-img small">
+                     <input type="checkbox" name="smell" class="p_form-content-input @error('smell') valid-error @enderror" id="smell" value="{{ $i }}" @if($i === $poof->smell) checked @endif">
+                     <img src="{{ asset('images/smell' .$i. '.png') }}" class="p_form-content-select-img small">
                  </button>
                  @endfor
                 </div>
@@ -157,6 +157,12 @@
 
      </div><!--form-wrap-->
   </form>
+
+  <form action="{{ route('delete_poof', $poof->id) }}" method="post" class="p_form ta-right">
+    @csrf
+    <button type="submit" class="c_submit-btn" onclick='return confirm("この日記を削除しますか？");'>削除する</button>
+  </form>
+
 
 @endsection
 

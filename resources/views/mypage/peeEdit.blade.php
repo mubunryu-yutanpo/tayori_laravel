@@ -13,7 +13,7 @@
     <img src="{{ asset('images/img2.png') }}" alt="" class="c_main-top-img-item">
   </div>
 
-  <form action="{{ route('create_pee') }}" method="post" class="p_form">
+  <form action="{{ route('update_pee', $pee->id) }}" method="post" class="p_form">
     @csrf
 
      <div class="p_form-wrap">
@@ -114,7 +114,7 @@
                   @for($i = 1; $i <= 5; $i++)
                   <button class="p_form-content-select-btn js-select-btn">
                      <input type="checkbox" name="volume" class="p_form-content-input @error('volume') valid-error @enderror" id="volume" value="{{ $i }}" @if($i === $pee->volume) checked @endif>
-                     <img src="images/volume{{ $i }}.png" class="p_form-content-select-img">
+                     <img src="{{ asset('images/volume' .$i. '.png') }}" class="p_form-content-select-img">
                   </button>
                   @endfor
                 </div>
@@ -143,7 +143,7 @@
                 @for($i = 1; $i <= 3; $i++)
                   <button class="p_form-content-select-btn js-select-btn">
                      <input type="checkbox" name="frequency" class="p_form-content-input @error('frequency') valid-error @enderror" id="frequency" value="{{ $i }}" @if($i === $pee->frequency) checked @endif>
-                     <img src="images/frequency{{ $i }}.png" class="p_form-content-select-img small">
+                     <img src="{{ asset('images/frequency' .$i. '.png') }}" class="p_form-content-select-img small">
                  </button>
                  @endfor
                 </div>
@@ -162,6 +162,12 @@
 
      </div><!--form-wrap-->
   </form>
+
+  <form action="{{ route('delete_pee', $pee->id) }}" method="post" class="p_form ta-right">
+    @csrf
+    <button type="submit" class="c_submit-btn" onclick='return confirm("この日記を削除しますか？");'>削除する</button>
+  </form>
+
 
 @endsection
 

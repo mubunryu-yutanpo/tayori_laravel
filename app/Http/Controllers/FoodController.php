@@ -11,6 +11,12 @@ use App\Food;
 
 class FoodController extends Controller
 {
+    // 日記一覧へ
+    public function index(){
+        $foods = Food::paginate(5);
+
+        return view('/mypage/indexFood', compact('foods'));
+    }
     // 日記作成ページへ
     public function new(){
         return view('/mypage/newFood');
@@ -30,7 +36,7 @@ class FoodController extends Controller
             $filename1 = $pic1->getClientOriginalName();
             $pic1->move(public_path('updates'), $filename1);
         }else{
-            $filename1 = 'default.png';
+            $filename1 = 'noimage.png';
         }
 
         if($request->pic2 !== null){
@@ -38,7 +44,7 @@ class FoodController extends Controller
             $filename2 = $pic2->getClientOriginalName();
             $pic2->move(public_path('updates'), $filename2);
         }else{
-            $filename2 = 'default.png';
+            $filename2 = 'noimage.png';
         }
 
         if($request->pic3 !== null){
@@ -46,11 +52,8 @@ class FoodController extends Controller
             $filename3 = $pic3->getClientOriginalName();
             $pic3->move(public_path('updates'), $filename3);
         }else{
-            $filename3 = 'default.png';
+            $filename3 = 'noimage.png';
         }
-
-
-
 
         //フォームの内容をDBに保存
         $food->fill([
@@ -76,9 +79,70 @@ class FoodController extends Controller
 
         $user = Auth::user();
         $food = DB::table('food')->find($id);
-        //dd($food);
 
         return view('mypage/foodEdit', compact('user', 'food'));
+    }
+
+    // 日記更新
+    public function update(Request $request, $id){
+        if(!ctype_digit($id)){
+            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+        }
+
+        $user_id = Auth::user()->id;
+        $pic = [];
+        $filename = [];
+
+        // 画像のパスを設定
+        if($request->pic1 !== null){
+            // ファイル形式で保存
+            $pic1 = $request->file('pic1');
+            $filename1 = $pic1->getClientOriginalName();
+            // パス名を指定してupdatesディレクトリに移動
+            $pic1->move(public_path('updates'), $filename1);
+        }else{
+            $filename1 = 'noimage.png';
+        }
+
+        if($request->pic2 !== null){
+            $pic2 = $request->file('pic2');
+            $filename2 = $pic2->getClientOriginalName();
+            $pic2->move(public_path('updates'), $filename2);
+        }else{
+            $filename2 = 'noimage.png';
+        }
+
+        if($request->pic3 !== null){
+            $pic3 = $request->file('pic3');
+            $filename3 = $pic3->getClientOriginalName();
+            $pic3->move(public_path('updates'), $filename3);
+        }else{
+            $filename3 = 'noimage.png';
+        }
+
+        Food::where('id', $id)->update([
+            'user_id' => $user_id,
+            'date'    => $request->date,
+            'time'    => $request->time,
+            'title'   => $request->title,
+            'comment' => $request->comment,
+            'pic1'    => '/updates/'.$filename1,
+            'pic2'    => '/updates/'.$filename2,
+            'pic3'    => '/updates/'.$filename3,
+        ]);
+
+        return redirect('/index/food')->with('flash_message', '日記情報を更新しました！');
+    }
+
+    public function delete($id){
+        if(!ctype_digit($id)){
+            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+        }
+
+        $food = Food::where('id', $id);
+        $food->delete();
+
+        return redirect('/index/food')->with('flash_message', '削除しました');
     }
 
 
