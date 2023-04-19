@@ -1,10 +1,22 @@
 .p_menu{
     @include mq(){
         background: $light-brown;
+        border: 1px solid $brown;
+        box-sizing: border-box;
+        //display: none;
         text-align: center;
+        transition: all .5s;
         padding: $space-10 0;
         position: absolute;
+        top: -200%;
+        left: 0;
         width: 100%;
+        z-index: 5;
+        &.on{
+            display: block;
+            transition: all 1.5s;
+            top: 0;
+        }
         &-close{
             text-align: right;
             padding-right: $space-20;
@@ -23,6 +35,35 @@
             padding: $space-10 $space-20;
             &:hover{
                 color: #fff;
+            }
+        }
+        &-submenu{
+            &-btn{
+                background: none;
+                display: block;
+                font-size: 16px;
+                margin: $space_30 auto;
+                width: 100%;
+                position: relative;
+                &:hover{
+                    color: #fff;
+                }
+                & i{
+                    font-size: 18px;
+                    display: none;
+                    position: absolute;
+                    right: 25%;
+                    top: 10%;
+                    &.on{
+                        display: block;
+                    }
+                }
+            }
+            &-items{
+                display: none;
+                &.open{
+                    display: block;
+                }
             }
         }
 

@@ -12,12 +12,21 @@ li,
 ul,
 button,
 input {
-  cursor: pointer;
   border: none;
   margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
+}
+
+p {
+  line-height: 150%;
+}
+
+a,
+button,
+input {
+  cursor: pointer;
 }
 
 @media screen and (max-width:767px) {
@@ -30,6 +39,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 0;
   }
 
   .header-logo {
@@ -38,8 +48,9 @@ input {
   }
 
   .header-logo-text {
+    color: #fff;
     font-family: "DynaPuff", cursive;
-    margin-left: 5px;
+    margin: 0 0 0 5px;
   }
 
   .header img {
@@ -62,6 +73,7 @@ input {
 .footer {
   background-color: rgb(182, 137, 115);
   padding: 10px 5px;
+  width: 100%;
 }
 
 .footer p {
@@ -71,6 +83,7 @@ input {
 }
 
 .c_main {
+  background-color: rgb(250, 243, 224);
   max-width: 980px;
   margin: 0 auto;
 }
@@ -128,6 +141,10 @@ input {
 
 .c_contents-about-text {
   padding: 0 10px 0 15px;
+}
+
+.c_contents-about-text p {
+  margin-bottom: 15px;
 }
 
 .c_contents-diary {
@@ -297,6 +314,10 @@ input {
   transition: all 0.5s;
   transform: scale(1);
   position: relative;
+}
+
+.p_form-content-select-btn.selected {
+  border: 2px solid rgb(30, 33, 45);
 }
 
 .p_form-content-select-btn:hover {
@@ -583,10 +604,22 @@ input {
 @media screen and (max-width:767px) {
   .p_menu {
     background: rgb(234, 191, 159);
+    border: 1px solid rgb(182, 137, 115);
+    box-sizing: border-box;
     text-align: center;
+    transition: all 0.5s;
     padding: 10px 0;
     position: absolute;
+    top: -200%;
+    left: 0;
     width: 100%;
+    z-index: 5;
+  }
+
+  .p_menu.on {
+    display: block;
+    transition: all 1.5s;
+    top: 0;
   }
 
   .p_menu-close {
@@ -612,6 +645,39 @@ input {
 
   .p_menu-link:hover {
     color: #fff;
+  }
+
+  .p_menu-submenu-btn {
+    background: none;
+    display: block;
+    font-size: 16px;
+    margin: 30px auto;
+    width: 100%;
+    position: relative;
+  }
+
+  .p_menu-submenu-btn:hover {
+    color: #fff;
+  }
+
+  .p_menu-submenu-btn i {
+    font-size: 18px;
+    display: none;
+    position: absolute;
+    right: 25%;
+    top: 10%;
+  }
+
+  .p_menu-submenu-btn i.on {
+    display: block;
+  }
+
+  .p_menu-submenu-items {
+    display: none;
+  }
+
+  .p_menu-submenu-items.open {
+    display: block;
   }
 }
 

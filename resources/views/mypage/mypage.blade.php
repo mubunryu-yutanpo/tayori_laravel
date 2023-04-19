@@ -17,7 +17,7 @@
 
   <div class="c_contents-card">
     <div class="c_contents-title">
-        <h3 class="c_contents-title-text">@if($poof !== null){{ $poof->title }}@else 無題 @endif</h3>
+        <h3 class="c_contents-title-text">@if($poof !== null){{ $poof->title }}@else まだ日記がありません @endif</h3>
     </div>
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($poof !== null){{ $poof->date }}@endif</p>
@@ -29,7 +29,7 @@
 
   <div class="c_contents-card">
     <div class="c_contents-title">
-        <h3 class="c_contents-title-text">@if($pee !== null){{ $pee->title }}@else 無題 @endif</h3>
+        <h3 class="c_contents-title-text">@if($pee !== null){{ $pee->title }}@else まだ日記がありません @endif</h3>
     </div>
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($pee !== null){{ $pee->date }}@endif</p>
@@ -40,7 +40,7 @@
 
   <div class="c_contents-card">
     <div class="c_contents-title">
-        <h3 class="c_contents-title-text">@if($food !== null){{ $food->title }}@else 無題 @endif</h3>
+        <h3 class="c_contents-title-text">@if($food !== null){{ $food->title }}@else まだ日記がありません @endif</h3>
     </div>
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($food !== null){{ $food->date }}@endif</p>

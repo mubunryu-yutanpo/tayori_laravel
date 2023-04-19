@@ -80,7 +80,7 @@
                 <div class="p_form-content-select">
                 @for($i = 1; $i <= 9; $i++)
                   <button class="p_form-content-select-btn select-poof-color{{ $i }} js-select-btn">
-                     <input type="checkbox" name="color" class="p_form-content-input color-select{{ $i }} @error('color') valid-error @enderror" id="color" value="{{ $i }}">
+                     <input type="checkbox" name="color" class="p_form-content-input color-select{{ $i }} @error('color') valid-error @enderror" id="color" value="{{ $i }}" @if($i === $poof->color) checked @endif>
                  </button>
                  @endfor
                 </div>

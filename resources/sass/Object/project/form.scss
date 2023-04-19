@@ -53,6 +53,9 @@
                 transition: all .5s;
                 transform: scale(1);
                 position: relative;
+                &.selected{
+                    border: 2px solid $black;
+                }
                 &:hover{
                     background-color: $yellow;
                     transition: all .5s;
