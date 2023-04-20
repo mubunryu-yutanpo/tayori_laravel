@@ -18,9 +18,14 @@
     background-color: $light-brown;
     border-radius: 0 0 10px 10px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    padding: $space_20 $space-10;
+    padding: $space_20 $space-10 $space-20 20%;
+    @include mq(){
+        justify-content: space-evenly;
+        align-items: center;
+        padding: $space_20 $space-10;
+    }
     &-text{
       padding: 0 $space-10 0 $space_default;
       & p{
@@ -32,8 +37,9 @@
     background-color: $light-brown;
     border-radius: 0 0 10px 10px;
     padding: $space_20 $space_default;
-    & p{
-        margin: $space_20 0;
+    & p, div{
+        margin: $space_20 auto;
+        width: 90%;
     }
     &-date{
         text-align: right;

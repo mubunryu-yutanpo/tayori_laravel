@@ -1,3 +1,8 @@
-.margin-b-20{
-    margin-bottom: $space-20;
+.margin-b{
+    &-20{
+        margin-bottom: $space-20;
+    }
+    &-40{
+        margin-bottom: $space_40;
+    }
 }

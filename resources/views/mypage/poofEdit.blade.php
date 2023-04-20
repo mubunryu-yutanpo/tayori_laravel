@@ -79,7 +79,7 @@
                 <p class="p_form-content-items-text">近いものを選択してください</p>
                 <div class="p_form-content-select">
                 @for($i = 1; $i <= 9; $i++)
-                  <button class="p_form-content-select-btn select-poof-color{{ $i }} js-select-btn">
+                  <button class="p_form-content-select-btn select-poof-color{{ $i }} js-select-btn @if($i === $poof->color) selected @endif">
                      <input type="checkbox" name="color" class="p_form-content-input color-select{{ $i }} @error('color') valid-error @enderror" id="color" value="{{ $i }}" @if($i === $poof->color) checked @endif>
                  </button>
                  @endfor
@@ -107,7 +107,7 @@
                 </p>
                 <div class="p_form-content-select nowrap">
                   @for($i = 1; $i <= 7; $i++)
-                  <button class="p_form-content-select-btn js-select-btn">
+                  <button class="p_form-content-select-btn js-select-btn @if($i === $poof->shape) selected @endif">
                      <input type="checkbox" name="shape" class="p_form-content-input @error('shape') valid-error @enderror" id="shape" value="{{ $i }}" @if($i === $poof->smell) checked @endif">
                      <img src="{{ asset('images/shape' .$i. '.png') }}" class="p_form-content-select-img">
                   </button>
@@ -136,7 +136,7 @@
                 </p>
                 <div class="p_form-content-select justfy-eve">
                 @for($i = 1; $i <= 3; $i++)
-                  <button class="p_form-content-select-btn js-select-btn">
+                  <button class="p_form-content-select-btn js-select-btn @if($i === $poof->smell) selected @endif">
                      <input type="checkbox" name="smell" class="p_form-content-input @error('smell') valid-error @enderror" id="smell" value="{{ $i }}" @if($i === $poof->smell) checked @endif">
                      <img src="{{ asset('images/smell' .$i. '.png') }}" class="p_form-content-select-img small">
                  </button>

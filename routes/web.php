@@ -19,6 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix' => 'api'], function(){
+    Route::post('/update/keep', 'ApiController@keepPoof');
+});
+
+Route::get('/example', function () {
+    return view('example');
+});
+
 
 Route::group(['middleware'=> 'auth'], function(){
     Route::get('/mypage', 'MypageController@mypage')->name('mypage');
@@ -47,7 +55,6 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('/{id}/poofEdit', 'PoofController@update')->name('update_poof');
     Route::post('/{id}/poofEdit/delete', 'PoofController@delete')->name('delete_poof');
     Route::get('/index/poof', 'PoofController@index')->name('index_poof');
-
 });
 
 

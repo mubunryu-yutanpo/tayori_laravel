@@ -5,6 +5,7 @@
 @section('header')
 
 @section('main')
+
   <div class="c_contents-card">
     <div class="c_contents-title">
         <h3 class="c_contents-title-text">流しちゃう前にチェック</h3>
@@ -52,7 +53,7 @@
 
   <div class="c_submit ta-center">
     <button class="p_button-primary color1">
-        <a href="" class="">今日の便りを記録する</a>
+        <a href="{{ route('mypage') }}" class="">今日の便りを記録する</a>
     </button>
     <p style="margin: 20px 0;">※完全無料でご利用いただけます</p>
   </div>

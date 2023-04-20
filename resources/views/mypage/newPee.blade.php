@@ -21,7 +21,7 @@
         <!-- 日時 -->
         <div class="p_form-content">
             <div class="p_form-content-title">
-                <p class="">日時</p>
+                <p class="">日時*</p>
             </div>
             <div class="p_form-content-items input-datetime">
                <label for="date">日付</label>
@@ -73,13 +73,13 @@
         <!-- 色 -->
         <div class="p_form-content">
             <div class="p_form-content-title">
-                <p class="">色</p>
+                <p class="">色*</p>
             </div>
             <div class="p_form-content-items">
                 <p class="p_form-content-items-text">近いものを選択してください</p>
                 <p class="p_form-content-items-text">
                     ( 白・透明<i class="fa-solid fa-backward"></i><i class="fa-solid fa-backward"></i>
-                    薄黄色<i class="fa-solid fa-forward"></i><i class="fa-solid fa-forward"></i>
+                    薄黄<i class="fa-solid fa-forward"></i><i class="fa-solid fa-forward"></i>
                     茶・赤 )
                 </p>
                 <div class="p_form-content-select justfy-ard">
@@ -101,7 +101,7 @@
         <!-- 量 -->
         <div class="p_form-content">
             <div class="p_form-content-title">
-                <p class="">尿量</p>
+                <p class="">尿量*</p>
             </div>
             <div class="p_form-content-items">
                 <p class="p_form-content-items-text">近いものを選択してください</p>
@@ -130,7 +130,7 @@
         <!-- 頻度 -->
         <div class="p_form-content">
             <div class="p_form-content-title">
-                <p class="">回数</p>
+                <p class="">回数*</p>
             </div>
             <div class="p_form-content-items">
                 <p class="p_form-content-items-text">選択してください（1日あたり）</p>

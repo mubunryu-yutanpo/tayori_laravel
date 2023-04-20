@@ -5,14 +5,17 @@
 @section('header')
 
 @section('main')
-  <div class="">
-    <img src="{{ $avatar }}" alt="">
-    <a href="{{ route('prof_edit', $user->id) }}">プロフ編集</a>
-    <a href="{{ route('withdrow', $user->id) }}">退会</a>
+
+  <div class="c_main-user">
+    <p class="c_main-user-name">{{ $user->name }} さん</p>
+    <div class="c_main-user-img">
+      <img src="{{ $avatar }}" alt="" class="c_main-user-img-item">
+    </div>
   </div>
+
   <div class="c_main-title">
       <p class="c_main-title-text"><i class="fa-solid fa-poo fa-fw"></i>マイページ</p>
-      <p class="c_main-title-about">※最新の日記のみ表示しています</p>
+      <p class="c_main-title-about margin-b-40">※最新の日記のみ表示しています</p>
   </div>
 
   <div class="c_contents-card">
@@ -22,10 +25,15 @@
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($poof !== null){{ $poof->date }}@endif</p>
             <p>@if($poof !== null){{ $poof->comment }}@endif</p>
-            @if($poof !== null)<a href="{{ route('edit_poof', $poof->id) }}">編集</a>@endif
+            @if($poof !== null)
+            <div class="c_submit ta-right">
+              <button type="button" class="p_button-primary">
+                <a href="{{ route('edit_poof', $poof->id) }}">編集</a>
+              </button>
+            </div>
+            @endif
     </div>
   </div>
-  <a href="{{ route('index_poof') }}">一覧へ</a>
 
   <div class="c_contents-card">
     <div class="c_contents-title">
@@ -33,8 +41,14 @@
     </div>
     <div class="c_contents-diary">
             <p class="c_contents-diary-date">@if($pee !== null){{ $pee->date }}@endif</p>
-            <p>@if($pee !== null){{ $pee->commnet }}@endif</p>
-            @if($pee !== null)<a href="{{ route('edit_pee', $pee->id) }}">編集</a>@endif
+            <p>@if($pee !== null){{ $pee->comment }}@endif</p>
+            @if($pee !== null)
+            <div class="c_submit ta-right">
+              <button type="button" class="p_button-primary">
+                <a href="{{ route('edit_pee', $pee->id) }}">編集</a>
+              </button>
+            </div>
+            @endif
     </div>
   </div>
 
@@ -48,13 +62,15 @@
                 <img src="{{ $food->pic1 }}" alt="" class="c_contents-diary-img-item">
             </div>
             <p>@if($food !== null){{ $food->comment }}@endif</p>
-            @if($food !== null)<a href="{{ route('edit_food', $food->id) }}">編集</a>@endif
+            @if($food !== null)
+            <div class="c_submit ta-right">
+              <button type="button" class="p_button-primary">
+                <a href="{{ route('edit_food', $food->id) }}">編集</a>
+              </button>
+            </div>
+            @endif
     </div>
   </div>
-  <a href="{{ route('index_food') }}">一覧へ</a>
-
-
-
 
 @endsection
 

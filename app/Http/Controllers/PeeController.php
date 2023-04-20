@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ValidRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
@@ -23,9 +24,13 @@ class PeeController extends Controller
     }
 
     // 日記作成
-    public function create(Request $request){
+    public function create(ValidRequest $request){
         $food = new Pee;
         $user_id = Auth::id();
+
+        if($request->color === null || $request->volume === null || $request->frequency === null){
+            return redirect('/newPee')->with('flash_message', '保存に失敗しました');
+        }
 
         //フォームの内容をDBに保存
         $food->fill([
@@ -57,12 +62,18 @@ class PeeController extends Controller
         }
 
         // 日記情報更新
-        public function update(Request $request, $id){
+        public function update(ValidRequest $request, $id){
             if(!ctype_digit($id)){
                 return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
             }
     
             $user_id = Auth::user()->id;
+
+            // 選択肢がバリデーションしないので、空欄ならリダイレクト
+            if($request->color === null || $request->volume === null || $request->frequency === null){
+                return redirect('/newPee')->with('flash_message', '保存に失敗しました');
+            }
+    
             
             Pee::where('id', $id)->update([
                 'user_id' => $user_id,

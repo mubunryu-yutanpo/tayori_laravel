@@ -84,7 +84,7 @@
                 </p>
                 <div class="p_form-content-select justfy-ard">
                 @for($i = 1; $i <= 7; $i++)
-                  <button class="p_form-content-select-btn select-pee-color{{ $i }} js-select-btn">
+                  <button class="p_form-content-select-btn select-pee-color{{ $i }} js-select-btn @if($i === $pee->color) selected @endif">
                     <input type="checkbox" name="color" class="p_form-content-input color-select{{ $i }} @error('color') valid-error @enderror" id="color" value="{{ $i }}" @if($i === $pee->color) checked @endif>
                  </button>
                  @endfor
@@ -112,7 +112,7 @@
                 </p>
                 <div class="p_form-content-select justfy-ard">
                   @for($i = 1; $i <= 5; $i++)
-                  <button class="p_form-content-select-btn js-select-btn">
+                  <button class="p_form-content-select-btn js-select-btn @if($i === $pee->volume) selected @endif">
                      <input type="checkbox" name="volume" class="p_form-content-input @error('volume') valid-error @enderror" id="volume" value="{{ $i }}" @if($i === $pee->volume) checked @endif>
                      <img src="{{ asset('images/volume' .$i. '.png') }}" class="p_form-content-select-img">
                   </button>
@@ -141,7 +141,7 @@
                 </p>
                 <div class="p_form-content-select justfy-eve">
                 @for($i = 1; $i <= 3; $i++)
-                  <button class="p_form-content-select-btn js-select-btn">
+                  <button class="p_form-content-select-btn js-select-btn @if($i === $pee->frequency) selected @endif">
                      <input type="checkbox" name="frequency" class="p_form-content-input @error('frequency') valid-error @enderror" id="frequency" value="{{ $i }}" @if($i === $pee->frequency) checked @endif>
                      <img src="{{ asset('images/frequency' .$i. '.png') }}" class="p_form-content-select-img small">
                  </button>

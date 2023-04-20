@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&family=M+PLUS+1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&family=Hachi+Maru+Pop&family=M+PLUS+1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -46,34 +46,40 @@
               @if(Route::currentRouteName() == 'mypage')
               <li class="p_menu-list"><a href="{{ route('prof_edit', $user->id) }}" class="p_menu-link">プロフィール編集</a></li>
               @endif
-                <button class="p_menu-submenu-btn js-submenu-btn">
+                <div class="p_menu-submenu">
+                  <button class="p_menu-submenu-btn js-submenu-btn">
                     ウンチ日記
                     <i class="fa-solid fa-chevron-down js-submenu-plus-icon on"></i>
                     <i class="fa-solid fa-chevron-up js-submenu-minus-icon"></i>
-                </button>
-                <div class="p_menu-submenu-items js-submenu">
-                  <li class="p_menu-list"><a href="{{ route('new_poof') }}" class="p_menu-link">日記作成</a></li>
-                  <li class="p_menu-list"><a href="{{ route('index_poof') }}" class="p_menu-link">日記編集</a></li>
+                  </button>
+                  <div class="p_menu-submenu-items js-submenu">
+                    <li class="p_menu-list"><a href="{{ route('new_poof') }}" class="p_menu-link">日記作成</a></li>
+                    <li class="p_menu-list"><a href="{{ route('index_poof') }}" class="p_menu-link">日記編集</a></li>
+                  </div>
                 </div>
 
-                <button class="p_menu-submenu-btn js-submenu-btn">
-                    オシッコ日記
-                    <i class="fa-solid fa-chevron-down js-submenu-plus-icon on"></i>
-                    <i class="fa-solid fa-chevron-up js-submenu-minus-icon"></i>
-                </button>
-                <div class="p_menu-submenu-items js-submenu">
-                  <li class="p_menu-list"><a href="{{ route('new_pee') }}" class="p_menu-link">日記作成</a></li>
-                  <li class="p_menu-list"><a href="{{ route('index_pee') }}" class="p_menu-link">日記編集</a></li>
+                <div class="p_menu-submenu">
+                  <button class="p_menu-submenu-btn js-submenu-btn">
+                      オシッコ日記
+                      <i class="fa-solid fa-chevron-down js-submenu-plus-icon on"></i>
+                      <i class="fa-solid fa-chevron-up js-submenu-minus-icon"></i>
+                  </button>
+                  <div class="p_menu-submenu-items js-submenu">
+                    <li class="p_menu-list"><a href="{{ route('new_pee') }}" class="p_menu-link">日記作成</a></li>
+                    <li class="p_menu-list"><a href="{{ route('index_pee') }}" class="p_menu-link">日記編集</a></li>
+                  </div>
                 </div>
 
-                <button class="p_menu-submenu-btn js-submenu-btn">
-                    食べたもの日記
-                    <i class="fa-solid fa-chevron-down js-submenu-plus-icon on"></i>
-                    <i class="fa-solid fa-chevron-up js-submenu-minus-icon"></i>
-                </button>
-                <div class="p_menu-submenu-items js-submenu">
-                  <li class="p_menu-list"><a href="{{ route('new_food') }}" class="p_menu-link">日記作成</a></li>
-                  <li class="p_menu-list"><a href="{{ route('index_food') }}" class="p_menu-link">日記編集</a></li>
+                <div class="p_menu-submenu">
+                  <button class="p_menu-submenu-btn js-submenu-btn">
+                      食べたもの日記
+                      <i class="fa-solid fa-chevron-down js-submenu-plus-icon on"></i>
+                      <i class="fa-solid fa-chevron-up js-submenu-minus-icon"></i>
+                  </button>
+                  <div class="p_menu-submenu-items js-submenu">
+                    <li class="p_menu-list"><a href="{{ route('new_food') }}" class="p_menu-link">日記作成</a></li>
+                    <li class="p_menu-list"><a href="{{ route('index_food') }}" class="p_menu-link">日記編集</a></li>
+                  </div>
                 </div>
           @else
               <li class="p_menu-list"> <a href="{{ route('login') }}" class="p_menu-link">ログイン</a></li>
@@ -107,6 +113,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/menu.js') }}"></script>
 
 
