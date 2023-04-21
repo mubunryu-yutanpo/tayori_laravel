@@ -1,4 +1,4 @@
-@extends('Layouts.parent')
+@extends('layouts.parent')
 
 @section('title', 'おしっこ日記一覧')
 
@@ -7,6 +7,15 @@
 @section('main')
   <div class="c_main-title">
       <p class="c_main-title-text"><i class="fa-solid fa-poo fa-fw"></i>おしっこ日記一覧</p>
+  </div>
+
+  <div class="c_main-sort">
+    <form method="GET" action="{{ route('index_food') }}">
+      <select name="sort" id="sort" onchange="this.form.submit()">
+        <option value="asc" {{ request()->query('sort') === 'asc' ? 'selected' : '' }}>古い順</option>
+        <option value="desc" {{ request()->query('sort') === 'desc' ? 'selected' : '' }}>新しい順</option>
+      </select>
+    </form>
   </div>
 
   @foreach($pees as $pee)
