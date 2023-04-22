@@ -13,9 +13,11 @@ use App\Poof;
 class PoofController extends Controller
 {
     // 日記一覧へ
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
-        $query = Poof::query();
+        $user = Auth::user();
+
+        $query = Poof::where('user_id', $id);
     
         $sort = $request->query('sort');
         if ($sort === 'asc') {
@@ -26,7 +28,7 @@ class PoofController extends Controller
     
         $poofs = $query->paginate(7);
     
-        return view('/mypage/indexPoof', compact('poofs'));
+        return view('/mypage/indexPoof', compact('user', 'poofs'));
     }
 
     // 日記作成ページへ
@@ -68,7 +70,6 @@ class PoofController extends Controller
     
         $user = Auth::user();
         $poof = DB::table('poof')->find($id);
-        //dd($poof);
     
         return view('mypage/poofEdit', compact('user', 'poof'));
     }

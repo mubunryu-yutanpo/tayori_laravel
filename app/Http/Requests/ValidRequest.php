@@ -37,10 +37,10 @@ class ValidRequest extends FormRequest
             'smell'     => 'sometimes|required',
             'volume'    => 'sometimes|required',
             'frequency' => 'sometimes|required',
-            'avatar'    => 'sometimes|nullable|mimes:jpeg,png,gif|max:1024',
-            'pic1'      => 'sometimes|nullable|mimes:jpeg,png,gif|max:1024',
-            'pic2'      => 'sometimes|nullable|mimes:jpeg,png,gif|max:1024',
-            'pic3'      => 'sometimes|nullable|mimes:jpeg,png,gif|max:1024',
+            'avatar'    => 'sometimes|nullable|mimes:jpg,jpeg,png,gif|max:1024',
+            'pic1'      => 'sometimes|nullable|mimes:jpg,jpeg,png,gif|max:1024',
+            'pic2'      => 'sometimes|nullable|mimes:jpg,jpeg,png,gif|max:1024',
+            'pic3'      => 'sometimes|nullable|mimes:jpg,jpeg,png,gif|max:1024',
         ];
     }
 
@@ -48,19 +48,19 @@ class ValidRequest extends FormRequest
         return[
             //フォームリクエスト（バリデーション）のエラーメッセージ設定
 
-            'avatar.mimes' => 'ファイル形式はjpeg、png、gifが利用可能です',
+            'avatar.mimes' => 'ファイル形式はjpeg(jpg)、png、gifが利用可能です',
             'avatar.max'   => 'ファイルサイズは1MB以下にしてください',
-            'pic1.mimes' => 'ファイル形式はjpeg、png、gifが利用可能です',
+            'pic1.mimes' => 'ファイル形式はjpeg(jpg)、png、gifが利用可能です',
             'pic1.max'   => 'ファイルサイズは1MB以下にしてください',
-            'pic2.mimes' => 'ファイル形式はjpeg、png、gifが利用可能です',
+            'pic2.mimes' => 'ファイル形式はjpeg(jpg)、png、gifが利用可能です',
             'pic2.max'   => 'ファイルサイズは1MB以下にしてください',
-            'pic3.mimes' => 'ファイル形式はjpeg、png、gifが利用可能です',
+            'pic3.mimes' => 'ファイル形式はjpeg(jpg)、png、gifが利用可能です',
             'pic3.max'   => 'ファイルサイズは1MB以下にしてください',
-            'color.required'     => '選択必須してください',
-            'shape.required'     => '選択必須してください',
-            'smell.required'     => '選択必須してください',
-            'volume.required'    => '選択必須してください',
-            'frequency.required' => '選択必須してください',
+            'color.required'     => '選択してください',
+            'shape.required'     => '選択してください',
+            'smell.required'     => '選択してください',
+            'volume.required'    => '選択してください',
+            'frequency.required' => '選択してください',
         ];
     }
 }
