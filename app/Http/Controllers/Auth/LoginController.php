@@ -27,6 +27,11 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/mypage';
 
+    /*リダイレクト先にマイページへ*/
+    protected function redirectTo(){
+    return '/mypage';
+    }
+
     /**
      * Create a new controller instance.
      *
