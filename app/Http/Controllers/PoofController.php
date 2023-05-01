@@ -65,7 +65,7 @@ class PoofController extends Controller
     //日記編集
     public function edit($id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+            returnredirect('/')->with('flash_message', __('不正な操作が行われました'));
         }
     
         $user = Auth::user();
@@ -76,7 +76,7 @@ class PoofController extends Controller
 
     public function update(ValidRequest $request, $id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+            returnredirect('/')->with('flash_message', __('不正な操作が行われました'));
         }
 
         $user_id = Auth::user()->id;
@@ -98,18 +98,18 @@ class PoofController extends Controller
             'smell' => $request->smell,
         ]);
 
-        return redirect('/index/poof')->with('flash_message', '日記情報を更新しました！');
+        return redirect('/mypage')->with('flash_message', '日記情報を更新しました！');
     }
 
     public function delete($id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+            returnredirect('/')->with('flash_message', __('不正な操作が行われました'));
         }
 
         $poof = Poof::where('id', $id);
         $poof->delete();
 
-        return redirect('/index/poof')->with('flash_message', '削除しました');
+        return redirect('/mypage')->with('flash_message', '削除しました');
     }
 
 }

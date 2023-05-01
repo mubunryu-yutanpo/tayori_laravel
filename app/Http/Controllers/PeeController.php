@@ -63,7 +63,7 @@ class PeeController extends Controller
         //日記編集
         public function edit($id){
             if(!ctype_digit($id)){
-                return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+                returnredirect('/')->with('flash_message', __('不正な操作が行われました'));
             }
     
             $user = Auth::user();
@@ -76,7 +76,7 @@ class PeeController extends Controller
         // 日記情報更新
         public function update(ValidRequest $request, $id){
             if(!ctype_digit($id)){
-                return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+                returnredirect('/')->with('flash_message', __('不正な操作が行われました'));
             }
     
             $user_id = Auth::user()->id;
@@ -98,18 +98,18 @@ class PeeController extends Controller
                 'frequency' => $request->frequency,
             ]);
 
-            return redirect('/index/pee')->with('flash_message', '日記情報を更新しました');
+            return redirect('/mypage')->with('flash_message', '日記情報を更新しました');
         }
     
         public function delete($id){
             if(!ctype_digit($id)){
-                return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+                return redirect('/')->with('flash_message', __('不正な操作が行われました'));
             }
     
             $pee = Pee::where('id', $id);
             $pee->delete();
     
-            return redirect('/index/pee')->with('flash_message', '削除しました');
+            return redirect('/mypage')->with('flash_message', '削除しました');
         }
     
 }

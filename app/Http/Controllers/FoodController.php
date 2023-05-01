@@ -87,7 +87,7 @@ class FoodController extends Controller
     //日記編集
     public function edit($id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+            return redirect('/')->with('flash_message', __('不正な操作が行われました'));
         }
 
         $user = Auth::user();
@@ -99,7 +99,7 @@ class FoodController extends Controller
     // 日記更新
     public function update(ValidRequest $request, $id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+            return redirect('/')->with('flash_message', __('不正な操作が行われました'));
         }
 
         $user_id = Auth::user()->id;
@@ -144,18 +144,18 @@ class FoodController extends Controller
             'pic3'    => '/updates/'.$filename3,
         ]);
 
-        return redirect('/index/food')->with('flash_message', '日記情報を更新しました！');
+        return redirect('/mypage')->with('flash_message', '日記情報を更新しました！');
     }
 
     public function delete($id){
         if(!ctype_digit($id)){
-            return redirect('/welcome')->with('flash_message', __('不正な操作が行われました'));
+            return redirect('/')->with('flash_message', __('不正な操作が行われました'));
         }
 
         $food = Food::where('id', $id);
         $food->delete();
 
-        return redirect('/index/food')->with('flash_message', '削除しました');
+        return redirect('/mypage')->with('flash_message', '削除しました');
     }
 
 
